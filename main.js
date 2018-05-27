@@ -18,7 +18,7 @@ document.addEventListener('visibilitychange',function () {
     if(document.hidden) {
         window.clearInterval(timeId);
     } else {
-        timeId = setTimer();
+         timeId = setTimer();
     }
 })
 

@@ -3,10 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>JS Bin</title>
+    <title>Apple 轮播</title>
     <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;}
+        ul,ol{list-style: none;}
         .window{
-            width:600px;
+            width:920px;
             overflow: hidden;
             margin: 0 auto;
         }
@@ -15,11 +18,30 @@
             align-items: flex-start;
             transition: all 0.5s;
         }
-        .red{
-            color: red;
+
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper{
+            text-align: center;
         }
         #buttons{
-            text-align: center;
+            display: inline-block;
+        }
+        #buttons > li{
+            float: left;
+            width: 60px;
+            height: 45px;
+            margin: 10px;
+            cursor: pointer;
+            padding-top: 10px;
+            vertical-align: top;
+        }
+
+        #buttons > li.active{
+            background-image: url(./images/active_bg.png);
         }
     </style>
 </head>
@@ -27,21 +49,19 @@
 <body>
 <div class ="window">
     <div id="images" class="images">
-        <img src="http://d2dcan0armyq93.cloudfront.net/photo/odai/600/f49459ac1abdc1f6130807d9d9d1c610_600.jpg" alt="" height=400 width=600>
-        <img src="http://www.edmontoncatfest.com/wp-content/uploads/2015/02/Nala-Instagram-Cat-Festival.jpg" alt="" width=600 height=400>
-        <img src="https://images.csmonitor.com/csmarchives/2011/02/0216-larry-the-cat.jpg?alias=standard_600x400" alt="" width=600 height=400>
-        <img src="http://d2dcan0armyq93.cloudfront.net/photo/odai/600/f49459ac1abdc1f6130807d9d9d1c610_600.jpg" alt="" height=400 width=600>
-        <img src="http://www.edmontoncatfest.com/wp-content/uploads/2015/02/Nala-Instagram-Cat-Festival.jpg" alt="" width=600 height=400>
-        <img src="https://images.csmonitor.com/csmarchives/2011/02/0216-larry-the-cat.jpg?alias=standard_600x400" alt="" width=600 height=400>
+        <img src="./images/imac.jpg" alt="" height=400 width=920>
+        <img src="./images/iphone.jpg" alt="" width=920 height=400>
+        <img src="./images/macbook.jpg" alt="" width=920 height=400>
+        <img src="./images/info.jpg" alt="" height=400 width=920>
     </div>
 </div>
-<div id='buttons'>
-    <span>第1张</span>
-    <span>第2张</span>
-    <span>第3张</span>
-    <span>第4张</span>
-    <span>第5张</span>
-    <span>第6张</span>
+<div class="wrapper">
+<ul id='buttons' class="clearfix">
+    <li><img src="./images/thumb_imac.png" alt=""></li>
+    <li><img src="./images/thumb_iphone.png" alt=""></li>
+    <li><img src="./images/thumb_macbook.png" alt=""></li>
+    <li><img src="./images/thumb_about.png" alt=""></li>
+</ul>
 </div>
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="main.js"></script>

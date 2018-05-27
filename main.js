@@ -1,30 +1,40 @@
-var $allButtons = $('#buttons > span');
+var $allButtons = $('#buttons > li');
 
 for (let i = 0; i < $allButtons.length; i++) {
     $allButtons.eq(i).on('click', function(e) {
         var index = $(e.currentTarget).index();
-        var pp = -600 * index;
+        var pp = -920 * index;
         $('#images').css({
             transform: 'translate(' + pp + 'px)'
         })
         n = index;
-        addRedClass($allButtons.eq(n));
+        addActiveClass($allButtons.eq(n));
     })
 }
 var n = 0;
-addRedClass($allButtons.eq(n).trigger('click'))
+addActiveClass($allButtons.eq(n).trigger('click'))
 var timeId = setTimer();
+document.addEventListener('visibilitychange',function () {
+    if(document.hidden) {
+        window.clearInterval(timeId);
+    } else {
+        timeId = setTimer();
+    }
+})
+
+
+
 function setTimer(){
     return setInterval(()=>{
         n += 1;
         n %= $allButtons.length;
-        addRedClass($allButtons.eq(n).trigger('click'))
+        addActiveClass($allButtons.eq(n).trigger('click'))
 },1500)
 }
 
-function addRedClass($buttons){
-    $buttons.addClass('red')
-        .siblings('.red').removeClass('red');
+function addActiveClass($buttons){
+    $buttons.addClass('active')
+        .siblings('.active').removeClass('active');
 }
 
 $('.window').on('mouseenter',function(){

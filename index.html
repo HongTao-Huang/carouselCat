@@ -5,65 +5,68 @@
     <meta charset="utf-8">
     <title>Apple 轮播</title>
     <style>
-        *{
-            margin: 0;padding: 0;box-sizing: border-box;}
+        *{margin: 0;padding: 0;box-sizing: border-box;}
         ul,ol{list-style: none;}
-        .window{
-            width:920px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-        .images{
-            display:flex;
-            align-items: flex-start;
-            transition: all 0.5s;
-        }
-
+        body{font-family: Arial, Helvetica, sans-serif;font-size:13px;color: #444444;background-color: #f2f2f2;}
+        .container{margin: 15px auto;}
+        .header {text-align: center;border-bottom:0.1px solid transparent;}
+        .header h1{font-size: 42px;font-weight: normal;padding:35px;}
+        .header .view{font-size: 16px;margin-bottom:10px;}
+        .header .view>span{color: blue;}
+        .main {box-shadow: rgb(170, 170, 170) 0px 0px 3px 0px;width:920px;margin: 15px auto;border-radius: 0px 0px 4px 4px;}
+        .main .window{width:920px;overflow: hidden;}
+        .main .window .images{display:flex;align-items: flex-start;transition: all 0.5s;}
         .clearfix::after{
             content: '';
             display: block;
             clear: both;
         }
-        .wrapper{
-            text-align: center;
-        }
-        #buttons{
-            display: inline-block;
-        }
-        #buttons > li{
-            float: left;
-            width: 60px;
-            height: 45px;
-            margin: 10px;
-            cursor: pointer;
-            padding-top: 10px;
-            vertical-align: top;
-        }
-
+        .main .nav-btn{text-align: center;border-top: 1px solid #E0E0E0}
+        #buttons{display: inline-block;vertical-align: top;}
+        #buttons > li{float: left;width: 60px;height: 45px;cursor: pointer;padding-top: 10px;border:none;border-left: 1px solid #FEFEFE;}
+        #buttons > li:nth-child(4){border-right: 1px solid #FEFEFE;}
         #buttons > li.active{
-            background-image: url(./images/active_bg.png);
+            background: url(./images/active_bg.png) repeat;
         }
+        footer{text-align: center;}
+        footer > p{padding: 10px;}
+        footer > p > span{color:blue;}
     </style>
 </head>
 
 <body>
-<div class ="window">
-    <div id="images" class="images">
-        <img src="./images/imac.jpg" alt="" height=400 width=920>
-        <img src="./images/iphone.jpg" alt="" width=920 height=400>
-        <img src="./images/macbook.jpg" alt="" width=920 height=400>
-        <img src="./images/info.jpg" alt="" height=400 width=920>
-    </div>
+<div class="container">
+    <header class = "header">
+        <h1>Apple-like Gallery<br>
+         <b>Slideshow</b></h1>
+        <p class="view">View the <span>original tutorial »</span></p>
+    </header>
+
+    <main class="main">
+        <div class ="window">
+            <div id="images" class="images">
+                <img src="./images/imac.jpg" alt="" height=400 width=920>
+                <img src="./images/iphone.jpg" alt="" width=920 height=400>
+                <img src="./images/macbook.jpg" alt="" width=920 height=400>
+                <img src="./images/info.jpg" alt="" height=400 width=920>
+            </div>
+        </div>
+        <div class="nav-btn">
+            <ul id='buttons' class="clearfix">
+                <li><img src="./images/thumb_imac.png" alt=""></li>
+                <li><img src="./images/thumb_iphone.png" alt=""></li>
+                <li><img src="./images/thumb_macbook.png" alt=""></li>
+                <li><img src="./images/thumb_about.png" alt=""></li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>This is a tutorialzine demo. View the <span>original tutorial</span> to read and download the source files.</p>
+        <p>The gallery features artwork from <span>rambocre</span>, <span>pickupjojo</span> and <span>codenamebender</span></p>
+    </footer>
 </div>
-<div class="wrapper">
-<ul id='buttons' class="clearfix">
-    <li><img src="./images/thumb_imac.png" alt=""></li>
-    <li><img src="./images/thumb_iphone.png" alt=""></li>
-    <li><img src="./images/thumb_macbook.png" alt=""></li>
-    <li><img src="./images/thumb_about.png" alt=""></li>
-</ul>
-</div>
-<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="main.js"></script>
 </body>
 
